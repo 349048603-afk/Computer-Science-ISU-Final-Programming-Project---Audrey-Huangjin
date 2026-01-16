@@ -290,8 +290,7 @@ public class ISU {
                      }
                      //update arraylist to include used indexes
                      usedMax.add(maxIndexSeven);
-                     System.out.println(firstNames.get(maxIndexSeven) + "  " + lastNames.get(maxIndexSeven) + "  "
-                             + grades.get(maxIndexSeven));
+                     System.out.println(firstNames.get(maxIndexSeven) + "  " + lastNames.get(maxIndexSeven) + "  " + grades.get(maxIndexSeven));
                  }
                  System.out.println("\nBottom 20% Students:\n");
                  // same thing as top
