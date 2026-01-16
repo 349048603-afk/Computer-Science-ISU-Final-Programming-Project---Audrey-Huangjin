@@ -53,16 +53,25 @@ public class ISU {
                  //Add a student
                  //For loop that stops when the user adds more than 2 students
                  for(int i = 0; i < 2; i++){
-                     //a new id number should be given to every student, so idNum ++ from 1005 to 1006 and so on
-                     idNum++;
-                     //Creating and adding new ID to students
-                     id.add(idNum);
                      System.out.println("\nEnter new student's first name: ");
                      firstNames.add(input.next());
                      System.out.println("Enter new student's last name: ");
                      lastNames.add(input.next());
                      System.out.println("Enter new student's grade: ");
-                     grades.add(input.nextInt());
+                     int temp = input.nextInt();
+                     if(temp > 100){ //if they enter a number greater than 100, it will redirect them
+                         System.out.println("Invalid input. Enter a number from 0 - 100.");
+                         firstNames.removeLast();
+                         lastNames.removeLast();
+                         break;
+                     }
+                     else{
+                         grades.add(temp);
+                         //a new id number should be given to every student, so idNum ++ from 1005 to 1006 and so on
+                         idNum++;
+                         //Creating and adding new ID to students only AFTER they succesfully added a student
+                         id.add(idNum);
+                     }
                      //If the user only inputted one student, they can choose to input another
                      if(i != 1) {
                          System.out.println("Do you want to add another student? (yes/no): ");
@@ -256,10 +265,6 @@ public class ISU {
                          } else {
                              System.out.println("This student has the average grade.");
                          }
-                     }
-                     else{
-                         System.out.println("This student does not exist.");
-                         break;
                      }
                  }
 
