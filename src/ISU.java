@@ -136,15 +136,23 @@ public class ISU {
                      int editedID = input.nextInt();
                      //use for loop in order to check which index the id is in order to find which student it is
                      for(int i = 0; i < firstNames.size(); i++){
-                         if(id.get(i) == editedID){
+                         if (id.get(i) == editedID) {
                              //updates student info at that index
-                             System.out.println("Enter new first name: ");
-                             firstNames.set(i, input.next());
-                             System.out.println("Enter new last name: ");
-                             lastNames.set(i, input.next());
                              System.out.println("Enter new mark: ");
-                             grades.set(i, input.nextInt());
-                             System.out.println("Successfully Updated!");
+                             int check = input.nextInt();
+                             //checks if the grade is valid, and if not, it boots the user out
+                             if(check > 100 || check < 0){
+                                 System.out.println("Invalid input. Enter a number from 0 - 100.");
+                                 break;
+                             } else {
+                                 //if grade is valid, it continues updating student information
+                                 grades.set(i, check);
+                                 System.out.println("Enter new first name: ");
+                                 firstNames.set(i, input.next());
+                                 System.out.println("Enter new last name: ");
+                                 lastNames.set(i, input.next());
+                                 System.out.println("Successfully Updated!");
+                             }
                          }
                      }
                  } else if (subChoice == 2) {
