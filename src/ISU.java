@@ -250,12 +250,15 @@ public class ISU {
                      averageSix += grades.get(i);
                  }
                 averageSix = averageSix/firstNames.size();
-                 //display user info
+                 //create new average to compare grades to
                  System.out.println("\nEnter first name, last name, or a part of the first or last names: ");
                  String search = input.next().toLowerCase();
+                 boolean found = false;
+                 //if the student the user inputted does not exist, it catches it
                  for(int i = 0; i < firstNames.size(); i++){
                      //search to see which index is the piece of the name from
                      if(firstNames.get(i).toLowerCase().contains(search)||lastNames.get(i).toLowerCase().contains(search)){
+                         found = true;
                          System.out.println("["+id.get(i)+"]  "+ firstNames.get(i)+"  "+lastNames.get(i)+"  "+grades.get(i));
                          //check if student's grades are above, below or on average value
                          if(grades.get(i) > averageSix){
@@ -266,6 +269,10 @@ public class ISU {
                              System.out.println("This student has the average grade.");
                          }
                      }
+                 }
+                 if(!found){
+                     System.out.println("Student not found. Try again.");
+                     //boots them out and lets them try again if they choose option 6
                  }
 
              } else if (choice == 7){
