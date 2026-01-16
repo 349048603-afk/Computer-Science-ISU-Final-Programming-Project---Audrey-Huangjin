@@ -29,7 +29,7 @@ public class ISU {
         id.add(1003);
         id.add(1004);
         id.add(1005);
-        //id number base for whenever a new student is added or removed
+        //id number base for whenever a new student is added or removed (put outside so that the program doesnt refresh the number)
         int idNum = 1005;
         // Greeting message
         System.out.println("\nHello! Welcome to the Course Management System!\nPlease pick an option from the menu: ");
