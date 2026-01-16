@@ -35,7 +35,6 @@ public class ISU {
         System.out.println("\nHello! Welcome to the Course Management System!\nPlease pick an option from the menu: ");
         //Loops main menu and options so that it can go back when it needs to unless option 8 is picked
         int choice = 0;
-
         while(choice != 8) {
             //Formatted so that the code doesn't run off the page
             System.out.println("\n1. Add a student\n" +
@@ -110,17 +109,13 @@ public class ISU {
                     }
                  }
                  //printing out grades and names
-                //again, formatted so that the code doesn't go off the page and look weird..
-                 System.out.println("\nThe lowest mark in the class is: " + minimum +
-                         "%\nBelonging to: " + firstNames.get(minIndex) +" "+lastNames.get(minIndex));
-                 System.out.println("The highest mark in the class is: " + maximum +
-                         "%\nBelonging to: " + firstNames.get(maxIndex) +" "+lastNames.get(maxIndex));
+                 System.out.println("\nThe lowest mark in the class is: " + minimum + "%\nBelonging to: " + firstNames.get(minIndex) +" "+lastNames.get(minIndex));
+                 System.out.println("The highest mark in the class is: " + maximum + "%\nBelonging to: " + firstNames.get(maxIndex) +" "+lastNames.get(maxIndex));
 
              } else if (choice == 4){
                  //display students
                  for (int i = 0; i < firstNames.size(); i++) {
-                     System.out.println("["+ id.get(i) + "]"+ "  " + firstNames.get(i) + "  "
-                             + lastNames.get(i) + "  " + grades.get(i));
+                     System.out.println("["+ id.get(i) + "]"+ "  " + firstNames.get(i) + "  " + lastNames.get(i) + "  " + grades.get(i));
                  }
                  System.out.println("\n1. Edit a Student\n2. Remove a Student\n3. Return to Main Menu");
                  System.out.println("Which action would you like to take?: ");
@@ -314,8 +309,7 @@ public class ISU {
                      }
                      //update arraylist to include used indexes
                      usedMin.add(minIndexSeven);
-                     System.out.println(firstNames.get(minIndexSeven) + "  " + lastNames.get(minIndexSeven) + "  "
-                             + grades.get(minIndexSeven));
+                     System.out.println(firstNames.get(minIndexSeven) + "  " + lastNames.get(minIndexSeven) + "  " + grades.get(minIndexSeven));
                  }
 
              } else if (choice == 8){
