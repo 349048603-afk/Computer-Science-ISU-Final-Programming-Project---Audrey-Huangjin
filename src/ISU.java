@@ -59,7 +59,7 @@ public class ISU {
                      lastNames.add(input.next());
                      System.out.println("Enter new student's grade: ");
                      int temp = input.nextInt();
-                     if(temp > 100){ //if they enter a number greater than 100, it will redirect them
+                     if(temp > 100 || temp < 0){ //if they enter a number greater than 100 or smaller than 0, it will redirect them
                          System.out.println("Invalid input. Enter a number from 0 - 100.");
                          firstNames.removeLast();
                          lastNames.removeLast();
@@ -134,24 +134,29 @@ public class ISU {
                      //edit student based on id
                      System.out.println("Enter ID of student you wish to edit: ");
                      int editedID = input.nextInt();
-                     //use for loop in order to check which index the id is in order to find which student it is
-                     for(int i = 0; i < firstNames.size(); i++){
-                         if (id.get(i) == editedID) {
-                             //updates student info at that index
-                             System.out.println("Enter new mark: ");
-                             int check = input.nextInt();
-                             //checks if the grade is valid, and if not, it boots the user out
-                             if(check > 100 || check < 0){
-                                 System.out.println("Invalid input. Enter a number from 0 - 100.");
-                                 break;
-                             } else {
-                                 //if grade is valid, it continues updating student information
-                                 grades.set(i, check);
-                                 System.out.println("Enter new first name: ");
-                                 firstNames.set(i, input.next());
-                                 System.out.println("Enter new last name: ");
-                                 lastNames.set(i, input.next());
-                                 System.out.println("Successfully Updated!");
+                     if(!id.contains(editedID)){
+                         //catches if user enters invalid ID
+                         System.out.println("ID not found. Please try again.");
+                     } else {
+                         //use for loop in order to check which index the id is in order to find which student it is
+                         for (int i = 0; i < firstNames.size(); i++) {
+                             if (id.get(i) == editedID) {
+                                 //updates student info at that index
+                                 System.out.println("Enter new mark: ");
+                                 int check = input.nextInt();
+                                 //checks if the grade is valid, and if not, it boots the user out
+                                 if (check > 100 || check < 0) {
+                                     System.out.println("Invalid input. Enter a number from 0 - 100.");
+                                     break;
+                                 } else {
+                                     //if grade is valid, it continues updating student information
+                                     grades.set(i, check);
+                                     System.out.println("Enter new first name: ");
+                                     firstNames.set(i, input.next());
+                                     System.out.println("Enter new last name: ");
+                                     lastNames.set(i, input.next());
+                                     System.out.println("Successfully Updated!");
+                                 }
                              }
                          }
                      }
@@ -166,6 +171,7 @@ public class ISU {
                              lastNames.remove(i);
                              grades.remove(i);
                              id.remove(i);
+                             break;
                          }
                      }
                      System.out.println("Successfully Removed.");
